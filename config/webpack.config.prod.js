@@ -1,8 +1,10 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 module.exports = {
   mode: 'production',
-  entry: ['@babel/polyfill', './src/js/SetDragAction.js'],
+  entry: ['@babel/polyfill', './src/SetDragAction.js'],
   output: {
-    filename: './js/SetDragAction.min.js',
+    filename: './SetDragAction.min.js',
     library: 'SetDragAction',
     libraryTarget: 'umd'
   },
@@ -19,5 +21,13 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+        hash: true,
+        inject: 'head',
+        template: './src/index.html',
+        filename: './index.html',
+    })
+  ]
 }

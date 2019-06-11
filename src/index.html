@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-  <script src="src/js/SetDragAction.js"></script>
+  <title>SetDragAction</title>
+
   <style>
     * { margin: 0; padding: 0; }
     body { background: #F0F0F0; }
@@ -15,8 +15,10 @@
     .list-2 li { float: none; height: 50px; line-height: 50px;}
     .list li.sd-placeholder { background: #fff; }
   </style>
+  
 </head>
 <body>
+
   <div class="wrapper">
     <ul class="list">
       <li style="width: 200px">1</li>
@@ -31,6 +33,7 @@
       <li style="width: 200px">10</li>
     </ul>
   </div>
+
   <script>
     var sortableList = new SetDragAction({
       el: document.querySelectorAll('.list')[0],
@@ -50,6 +53,7 @@
       }
     });
   </script>
+  
   <div class="wrapper">
     <ul class="list list-2">
       <li>1</li>

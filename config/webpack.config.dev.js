@@ -1,10 +1,11 @@
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['@babel/polyfill', './src/js/SetDragAction.js'],
+  entry: ['@babel/polyfill', './src/SetDragAction.js'],
   output: {
-    filename: './src/js/SetDragAction.js',
+    filename: './src/SetDragAction.js',
     library: 'SetDragAction',
     libraryTarget: 'umd'
   },
@@ -23,8 +24,16 @@ module.exports = {
       }
     ]
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+        hash: true,
+        inject: 'head',
+        template: './src/index.html',
+        filename: './index.html',
+    })
+  ],
   devServer: {
-    contentBase: path.join(__dirname, '../'),
+    contentBase: path.join(__dirname, '../src'),
     compress: false,
     port: 9000,
     open: false,
