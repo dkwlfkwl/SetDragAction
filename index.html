@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>SetDragAction</title>
+
+  <style>
+    * { margin: 0; padding: 0; }
+    body { background: #F0F0F0; }
+    .wrapper { width: 1100px; margin: 50px auto; padding: 50px; background: #2F3033; }
+    .list:after { content: ""; display: block; clear: both; }
+    .list li { width: 200px; float: left; box-sizing: border-box; height: 100px; line-height: 100px; background: #56B4F0; border: 1px solid #000; border-radius: 10px; list-style: none; text-align: center; font-size: 40px; color: #fff; }
+    .list-2 li { float: none; height: 50px; line-height: 50px;}
+    .list li.sd-placeholder { background: #fff; }
+  </style>
+  
+<script type="text/javascript" src="./SetDragAction.min.js?ded0eb6f84bf0d1a40ba"></script></head>
+<body>
+
+  <div class="wrapper">
+    <ul class="list">
+      <li style="width: 200px">1</li>
+      <li style="width: 100px">2</li>
+      <li style="width: 300px">3</li>
+      <li style="width: 200px">4</li>
+      <li style="width: 300px">5</li>
+      <li style="width: 100px">6</li>
+      <li style="width: 200px">7</li>
+      <li style="width: 400px">8</li>
+      <li style="width: 300px">9</li>
+      <li style="width: 200px">10</li>
+    </ul>
+  </div>
+
+  <script>
+    var sortableList = new SetDragAction({
+      el: document.querySelectorAll('.list')[0],
+      forcePlaceholderSize: true, // default false
+      targetZindex: 1000, // dfault 100
+      dragStart: function(event, obj) {
+      },
+      drag: function(event, obj) {
+      },
+      dragChange: function(event, obj) {
+        console.log('dragChange')
+      },
+      dragEnd: function(event, obj) {
+      },
+      change: function(event, obj) {
+        console.log('change')
+      }
+    });
+  </script>
+  
+  <div class="wrapper">
+    <ul class="list list-2">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+      <li>6</li>
+      <li>7</li>
+      <li>8</li>
+      <li>9</li>
+      <li>10</li>
+    </ul>
+  </div>
+
+  <script>
+    var sortableList2 = new SetDragAction({
+      el: document.querySelectorAll('.list-2')[0],
+      forcePlaceholderSize: true, // default false
+      targetZindex: 1000, // dfault 100
+      dragStart: function(event, obj) {
+      },
+      drag: function(event, obj) {
+      },
+      dragChange: function(event, obj) {
+        console.log('dragChange')
+      },
+      dragEnd: function(event, obj) {
+      },
+      change: function(event, obj) {
+        console.log('change')
+      }
+    });
+  </script>
+</body>
+</html>
